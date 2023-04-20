@@ -8,9 +8,9 @@ class inimene(models.Model):
     def __str__(self):
         return self.nimi
 class tehing(models.Model):
-    saaja = models.ForeignKey(inimene, on_delete=models.CASCADE)
-#    andja = models.ForeignKey(inimene, on_delete=models.CASCADE)
+    saaja = models.CharField(max_length=200)
+    andja = models.CharField(max_length=200)
     kogus = models.DecimalField(max_digits=200, decimal_places=2)
     selgitus = models.CharField(default="Selgitus puudub.", max_length=10000)
     def __self__(self):
-        return self.saaja
+        return self.saaja+" --> "+self.andja
