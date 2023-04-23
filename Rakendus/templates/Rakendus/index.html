@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        div {
+            text-align: center;
+            margin: 50px;
+        }
+        a {
+            padding: 20px;
+            border: 1px solid black;
+            border-radius: 5px;            
+        }
+        a:hover {
+            background-color: aqua;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: rgb(255, 255, 230);
+        }
+    </style>
+    <body>
+        <a href="{% url "logout_" %}" style="padding: 5px;">Logi välja</a>
+        <div><a href="{% url "sisestus" %}">Uus tehing</a></div>
+        <div><a href="{% url "praegu" %}">Vaata praeguseid tehinguid</a></div>
+        <div><b>{{sonum}}</b></div>
+    </body>
+</html>

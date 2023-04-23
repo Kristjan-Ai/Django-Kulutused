@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <style>
+       tr:nth-child(even) {
+            background-color: #D6EEEE;
+        }
+        th {
+            border: 1px solid black;
+            font-size: 32px;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+        td {
+            font-size: 24px;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: rgb(255, 255, 230);
+        }
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        table {
+            border: 1px solid black;
+        }
+    </style>
+    <body>
+        <a href="{% url 'index' %}">Tagasi</a>
+        <div class="table">
+            <table class="center">
+                <tr>
+                    <th>Raha saaja</th>
+                    <th>Raha andja</th>
+                    <th>Kogus(€)</th>
+                    <th style="border: 0px"></th>
+                </tr>
+            {% for asi in tehingud %}
+                <tr>
+                    <td>{{asi.saaja}}</td>
+                    <td>{{asi.andja}}</td>
+                    <td>{{asi.kogus}}</td>
+                    <td><form action="{% url 'praegu' %}" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="id" value={{asi.id}}>
+                        <button type="submit">Kustuta</button>
+                    </form></td>
+                </tr>
+            {% endfor %}
+            </table>
+        </div>
+    </body>
+</html>

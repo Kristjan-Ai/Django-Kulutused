@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        body {
+            text-align: center;
+            background-color: rgb(255, 255, 230);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        div {
+            margin: 10px;
+        }
+    </style>
+    <body>
+        <div>
+            <form action="{% url "login_" %}" method="POST">
+            {% csrf_token %}
+                <legend><h1>Palun logi sisse</h1></legend>
+                <h2 style="color: red; font-size: 20px;">{{sonum}}</h2>
+                <div>
+                    <label>Kasutajanimi:</label>
+                    <input type="text" name="username" value="Kasutaja">                    
+                </div>
+                <div>
+                    <label>Salasõna:</label>
+                    <input type="password" name="password">                    
+                </div>
+                <div><input type="submit" value="Logi sisse"></div>
+            </form>
+        </div>
+    </body>
+</html>
