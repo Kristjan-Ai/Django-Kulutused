@@ -50,14 +50,12 @@
             {% endfor %}
             </table>
         </div>
-
-
-
+        <div style="margin-top: 20px; margin-left: 30%; margin-right: 30%; margin-bottom: 10px; font-size: larger; text-align: center; border-bottom: 2px solid black;"><b>Kokkuvõte:</b></div>
         {% for inimene in inimesed %}
             {% if inimene.raha < 0 %}
-                <div style="text-align: center;"><b>{{inimene}} on võlgu raha {{inimene.raha|absolute}}€</b></div>
+                <div style="text-align: center;"><b>{{inimene}} on võlgu {{inimene.raha|absolute}}€</b></div>
             {% else %}    
-                <div style="text-align: center;"><b>{{inimene}} saab raha {{ inimene.raha }}€</b></div>
+                <div style="text-align: center;"><b>{{inimene}} saab {{ inimene.raha }}€</b></div>
             {% endif %}    
         {% endfor %}
     </body>
